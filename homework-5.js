@@ -23,11 +23,16 @@ app.get('/homework-5',function(req,res){
 
 app.post('/homework-5',function(req,res){
   var context = {};
+  var bodyData = [];
   var queryData = [];
-  for (var key in req.body){
-    queryData.push({'key': key, 'value': req.body[key]});
+  for (var key in req.query){
+    queryData.push({'key': key, 'value': req.query[key]});
   };
-  context.dataList = queryData;
+  for (var key in req.body){
+    bodyData.push({'key': key, 'value': req.body[key]});
+  };
+  context.table1 = queryData;
+  context.table2 = bodyData;
   res.render('post-received', context);
 });
 

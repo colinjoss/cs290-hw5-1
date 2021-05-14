@@ -1,10 +1,25 @@
 <h1>POST request received!</h1>
+<p>URL Query String</p>
 <table>
     <tr>
         <th>Parameter</th>
         <th>Value</th>
     </tr>
-    {{#each dataList}}
+    {{#each table1}}
+        <tr>
+            <td>{{this.key}}</td>
+            <td>{{this.value}}</td>
+        </tr>
+    {{/each}}
+</table>
+</br>
+<p>Request Body</p>
+<table>
+    <tr>
+        <th>Parameter</th>
+        <th>Value</th>
+    </tr>
+    {{#each table2}}
         <tr>
             <td>{{this.key}}</td>
             <td>{{this.value}}</td>
