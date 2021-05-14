@@ -11,17 +11,33 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 5654);
 
-app.get('/',function(req,res){
-  res.render('home');
-});
-
-app.get('/show-data',function(req,res){
+app.get('/homework-5',function(req,res){
   var context = {};
-  context.sentData = req.query.myData;
-  res.render('show-data', context);
+  var queryData = [];
+  for (var key in req.query){
+    queryData.push({'key': key, 'value': req.query[key]});
+  };
+  context.dataList = queryData;
+  res.render('homework-5', context);
 });
 
-app.get('/get-loopback-improved',function(req,res){
+app.post('/homework-5',function(req,res){
+  var context = {};
+  var queryData = [];
+  for (var key in req.body){
+    queryData.push({'key': key, 'value': req.body[key]});
+  };
+  context.dataList = queryData;
+  res.render('homework-5', context);
+});
+
+
+
+
+
+
+
+app.get('/get-test',function(req,res){
   var qParams = [];
   for (var p in req.query){
     qParams.push({'name':p,'value':req.query[p]})
@@ -31,7 +47,7 @@ app.get('/get-loopback-improved',function(req,res){
   res.render('get-loopback-improved', context);
 });
 
-app.post('/post-loopback', function(req,res){
+app.post('/post-test', function(req,res){
   var qParams = [];
   for (var p in req.body){
     qParams.push({'name':p,'value':req.body[p]})
