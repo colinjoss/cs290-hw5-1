@@ -1,0 +1,13 @@
+<h1>GET request received!</h1>
+<table>
+    <th>
+        <td>Parameter</td>
+        <td>Value</td>
+    </th>
+    {{#each dataList}}
+        <tr>
+            <td>{{this.key}}</td>
+            <td>{{this.value}}</td>
+        </tr>
+    {{/each}}
+</table>

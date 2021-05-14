@@ -18,7 +18,7 @@ app.get('/homework-5',function(req,res){
     queryData.push({'key': key, 'value': req.query[key]});
   };
   context.dataList = queryData;
-  res.render('homework-5', context);
+  res.render('get-received', context);
 });
 
 app.post('/homework-5',function(req,res){
@@ -28,35 +28,7 @@ app.post('/homework-5',function(req,res){
     queryData.push({'key': key, 'value': req.body[key]});
   };
   context.dataList = queryData;
-  res.render('homework-5', context);
-});
-
-
-
-
-
-
-
-app.get('/get-test',function(req,res){
-  var qParams = [];
-  for (var p in req.query){
-    qParams.push({'name':p,'value':req.query[p]})
-  }
-  var context = {};
-  context.dataList = qParams;
-  res.render('get-loopback-improved', context);
-});
-
-app.post('/post-test', function(req,res){
-  var qParams = [];
-  for (var p in req.body){
-    qParams.push({'name':p,'value':req.body[p]})
-  }
-  console.log(qParams);
-  console.log(req.body);
-  var context = {};
-  context.dataList = qParams;
-  res.render('post-loopback', context);
+  res.render('post-received', context);
 });
 
 app.use(function(req,res){
